@@ -3,8 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import AtUI from 'at-ui'
+import 'at-ui-style'
 
 Vue.config.productionTip = false
+Vue.use(AtUI)
 
 /* eslint-disable no-new */
 new Vue({

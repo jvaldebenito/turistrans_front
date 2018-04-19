@@ -7,7 +7,9 @@
 
     <!-- Main -->
     <main class="main-section">
-      <slot name="main-content"></slot>
+      <div class="container">
+        <slot name="main-content"></slot>
+      </div>
     </main>
     <!-- End Main -->
 
