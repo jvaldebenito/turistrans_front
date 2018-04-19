@@ -19,7 +19,7 @@ export default {
 
 <style>
   footer {
-    margin-top: 30px;
+    margin-top: 80px;
   }
   .center{
     text-align: center !important;
