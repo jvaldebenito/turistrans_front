@@ -2,23 +2,23 @@ import axios from 'axios'
 
 const API_URL = 'http://localhost:3000/'
 
-let postCheckIn = () => {
+let postCheckIn = (check_in) => {
     return axios.post(`${API_URL}/checkins`, {
       "check_in": {
-        "name"          : "Chelo",
-				"surname"       : "Tavano",
-				"passport"      : "F0454554",
-				"address"       : "192.168.4.77",
-				"city"          : "Santiago",
-				"country"       : "Santiago",
-				"nationality"   : "Chile",
-				"email"         : "mtavano@gmail.com",
-				"phone"         : "+5697884856",
-				"arrival_date"  : "10/10/18",
-				"departure_date": "10/12/18",
-				"room"          : "42",
-				"folio"         : "564485868667",
-				"rate"          : "5"
+        "name"          : check_in.name,
+				"surname"       : check_in.surname,
+				"passport"      : check_in.passport,
+				"address"       : check_in.address,
+				"city"          : check_in.city,
+				"country"       : check_in.country,
+				"nationality"   : check_in.nationality,
+				"email"         : check_in.email,
+				"phone"         : check_in.phone,
+				"arrival_date"  : check_in.arrival_date,
+				"departure_date": check_in.departure_date,
+				"room"          : check_in.room,
+				"folio"         : check_in.folio,
+				"rate"          : check_in.rate
       }
     })
 }

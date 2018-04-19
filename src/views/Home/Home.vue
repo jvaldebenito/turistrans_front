@@ -170,9 +170,16 @@ export default {
       this.modalHotelPolicies = false
     },
     sendCheckIn () {
-      postCheckIn().then(response => {
+      postCheckIn(this.check_in).then(response => {
         console.log(response)
-      }).catch(err => console.log(err))
+      }).catch(err => {
+        console.log(err)
+        this.$Notify({
+          title: 'Ups!',
+          message: 'Ocurrió un problema, vuelva a internarlo!',
+          type: 'error'
+        })
+      })
     }
   }
 }
