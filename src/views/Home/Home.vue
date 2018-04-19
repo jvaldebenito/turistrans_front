@@ -219,51 +219,51 @@ export default {
 
 <style>
   .black-color {
-    color: #1a031c;
+    color: #1a031c !important;
   }
   .orange-color {
-    color: #dc9a3e;
+    color: #dc9a3e !important;
   }
   h1 {
-    font-size: 2rem;
+    font-size: 2rem !important;
   }
   .at-input__original,
   .at-select__selection {
-    color: #1a031c;
-    border: 1px solid #474148;
+    color: #1a031c !important;
+    border: 1px solid #474148 !important;
   }
   .at-input__original:focus,
   .at-input__original:hover,
   .at-select__selection:focus,
   .at-select__selection:hover {
-    border-color: #dc9a3e;
+    border-color: #dc9a3e !important;
   }
   .at-select--large .at-select__selection {
-    height: 36px;
-    line-height: 34px;
+    height: 36px !important;
+    line-height: 34px !important;
   }
   .at-select__option {
-    color: #1a031c;
+    color: #1a031c !important;
   }
   .at-btn {
-    border: 1px solid #dc9a3e;
-    color: #1a031c;
+    border: 1px solid #dc9a3e !important;
+    color: #1a031c !important;
   }
   .at-btn:hover {
-    background-color: #dc9a3e;
-    color: #FFF;
+    background-color: #dc9a3e !important;
+    color: #FFF !important;
   }
   .btn-send-check-in {
-    width: 100%;
-    background-color: #dc9a3e;
-    color: #FFF;
+    width: 100% !important;
+    background-color: #dc9a3e !important;
+    color: #FFF !important;
   }
   .btn-send-check-in:hover {
-    background-color: transparent;
-    color: #1a031c;
+    background-color: transparent !important;
+    color: #1a031c !important;
   }
   .at-notification {
-    color: #1a031c;
+    color: #1a031c !important;
   }
 </style>
 

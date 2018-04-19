@@ -26,7 +26,7 @@ export default {
 
 <style>
   header {
-    margin: 15px 0;
+    margin: 15px 0 !important;
   }
   .right-align{ 
     text-align: right !important;
@@ -36,13 +36,13 @@ export default {
   }
   .at-menu--horizontal .at-menu__item.at-menu__item--active .at-menu__item-link,
   .at-menu--horizontal .at-menu__item-link:hover, .at-menu--horizontal .at-menu__item-link.router-link-active {
-    color: #dc9a3e;
+    color: #dc9a3e !important;
   }
   .at-menu--horizontal .at-menu__item-link::after {
-    background-color: #dc9a3e;
+    background-color: #dc9a3e !important;
   }
   .at-menu__item a {
-    color: #1a031c;
+    color: #1a031c !important;
   }
 </style>
 

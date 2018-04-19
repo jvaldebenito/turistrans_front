@@ -19,18 +19,18 @@ export default {
 
 <style>
   footer {
-    margin-top: 80px;
-    margin-bottom: 20px;
+    margin-top: 80px !important;
+    margin-bottom: 20px !important;
   }
   .center{
     text-align: center !important;
   }
   hr{
-    border: 1px solid gainsboro;
-    margin-bottom: 5px;
-    opacity: .6;
+    border: 1px solid gainsboro !important;
+    margin-bottom: 5px !important;
+    opacity: .6 !important;
   }
   black-color {
-    color: #1a031c;
+    color: #1a031c !important;
   }
 </style>
