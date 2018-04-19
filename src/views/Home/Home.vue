@@ -238,16 +238,13 @@ export default {
   .at-select__selection:hover {
     border-color: #dc9a3e;
   }
-
   .at-select--large .at-select__selection {
     height: 36px;
     line-height: 34px;
   }
-
   .at-select__option {
     color: #1a031c;
   }
-
   .at-btn {
     border: 1px solid #dc9a3e;
     color: #1a031c;
@@ -263,6 +260,9 @@ export default {
   }
   .btn-send-check-in:hover {
     background-color: transparent;
+    color: #1a031c;
+  }
+  .at-notification {
     color: #1a031c;
   }
 </style>
