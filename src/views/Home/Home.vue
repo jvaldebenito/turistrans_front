@@ -112,7 +112,7 @@
               </div>
               <div class="col-md-8">
                 <label class="black-color">Habitación/ Room</label>
-                <at-select v-model="check_in.room" size="large">
+                <at-select v-model="check_in.room" size="large" placeholder="Seleccione / Select">
                   <at-option value="room101">Habitación / Room 101</at-option>
                   <at-option value="room102">Habitación / Room 102</at-option>
                   <at-option value="room103">Habitación / Room 103</at-option>
@@ -126,7 +126,7 @@
 
             <div class="row at-row">
               <div class="col-md-offset-16 col-md-8">
-                <at-button class="btn-send-check-in" @click="sendCheckIn">Enviar Registro / Send Check - In</at-button>
+                <at-button class="btn-send-check-in" :disabled="disabledButton" @click="sendCheckIn">Enviar Registro / Send Check - In</at-button>
               </div>
             </div>
 
@@ -146,6 +146,7 @@ export default {
   data () {
     return {
       modalHotelPolicies: false,
+      disabledButton: false,
       check_in: {
         name          : '',
         surname       : '',
@@ -172,17 +173,46 @@ export default {
       this.modalHotelPolicies = false
     },
     sendCheckIn () {
-      postCheckIn(this.check_in).then(response => {
-        console.log(response)
-      }).catch(err => {
-        console.log(err)
+      this.disabledButton = true
+      if (this.checkValuesForm()) {
+        postCheckIn(this.check_in).then(response => {
+          if(response.status == 200) {
+            this.$Notify({
+              title: 'Genial!',
+              message: 'El registro se realizó con éxito! / The check in it was done successfully',
+              type: 'error'
+            })
+            this.disabledButton = false
+          } else {
+            this.$Notify({
+              title: 'Ups!',
+              message: 'Ocurrió un problema, vuelva a internarlo! / There was a problem, reinsert it!',
+              type: 'error'
+            })
+            this.disabledButton = false
+          }
+        }).catch(err => {
+          this.$Notify({
+            title: 'Ups!',
+            message: 'Ocurrió un problema, vuelva a internarlo! / There was a problem, reinsert it!',
+            type: 'error'
+          })
+          this.disabledButton = false
+        })
+      } else {
         this.$Notify({
           title: 'Ups!',
-          message: 'Ocurrió un problema, vuelva a internarlo!',
-          type: 'error'
+          message: 'Debe completar todos los campos! / You must complete all the fields!',
+          type: 'warning'
         })
-      })
-    }
+        this.disabledButton = false
+      }
+    },
+    checkValuesForm () {
+      if (this.check_in.name === '' || this.check_in.surname === '' || this.check_in.passport === '' || this.check_in.address === '' || this.check_in.city === '' || this.check_in.country === '' || this.check_in.nationality === '' || this.check_in.email === '' || this.check_in.phone === '' || this.check_in.arrival_date === '' || this.check_in.departure_date === '' || this.check_in.room === '' || this.check_in.folio === '' || this.check_in.rate === '')
+        return false
+      return true
+    } 
   }
 }
 </script>
