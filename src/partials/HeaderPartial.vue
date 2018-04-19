@@ -2,13 +2,15 @@
   <header>
     <div class="container">
       <div class="row at-row">
-        <div class="col-md-3">
-          <img src="/static/logotipo.png" width="100%"/>
+        <div class="col-xs-offset-4 col-xs-16 col-sm-24 col-md-3 col-lg-3">
+          <router-link to="/">
+            <img src="/static/logotipo.png" width="100%"/>
+          </router-link>
         </div>
-        <div class="col-md-offset-13 col-md-8 right-align">
-          <at-menu router mode="horizontal">
-            <at-menu-item name="check" to="/"><i class="icon icon-check"></i>Check-in</at-menu-item>
-            <at-menu-item name="comments" to="/comments"><i class="icon icon-message-square"></i>Comentarios</at-menu-item>
+        <div class="col-xs-24 col-sm-24 col-md-offset-9 col-md-12 col-lg-offset-9 col-lg-12 right-align">
+          <at-menu mode="horizontal" active-name="/">
+            <at-menu-item name="/" to="/"><i class="icon icon-check"></i>Registro / Check-in</at-menu-item>
+            <at-menu-item name="/comments" to="/comments"><i class="icon icon-message-square"></i>Comentarios / Comments</at-menu-item>
           </at-menu>
         </div>
     </div>
@@ -38,6 +40,9 @@ export default {
   }
   .at-menu--horizontal .at-menu__item-link::after {
     background-color: #dc9a3e;
+  }
+  .at-menu__item a {
+    color: #1a031c;
   }
 </style>
 

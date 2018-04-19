@@ -4,7 +4,7 @@
       <div class="container">
 
         <div class="row at-row">
-          <div class="col-md-offset-20 col-md-4">
+          <div class="col-xs-offset-12 col-xs-12 col-sm-offset-12 col-sm-12 col-md-offset-19 col-md-3 col-lg-offset-20 col-lg-2">
             <at-button @click="modalHotelPolicies=true">Ver Políticas / See Policies</at-button>
             <at-modal v-model="modalHotelPolicies">
               <div slot="header">
@@ -33,16 +33,16 @@
         </div>
 
         <div class="row at-row center">
-          <div class="col-md-24">
+          <div class="col-xs-24 col-sm-24 col-md-24 col-lg-24">
             <h1 class="black-color">Registro <b class="orange-color">-</b> Check in</h1>
           </div>
         </div>
         
         <div class="row at-row">
-          <div class="col-md-offset-4 col-md-16">
+          <div class="col-xs-24 col-sm-24 col-md-offset-4 col-md-16 col-lg-offset-4 col-lg-16">
 
             <div class="row at-row">
-              <div class="col-md-24 center">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-24 col-lg-24 center">
                 <h3 class="black-color">CHECK - IN TIME: 15:00 HORAS | CHECK - OUT TIME: 12:00 HORAS</h3>
               </div>
             </div>
@@ -51,15 +51,15 @@
             <br />
 
             <div class="row at-row">
-              <div class="col-md-8">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-8 col-lg-8">
                 <label class="black-color">Nombre / Name</label>
                 <at-input v-model="check_in.name" size="large" placeholder="John"></at-input>
               </div>
-              <div class="col-md-8">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-8 col-lg-8">
                 <label class="black-color">Apellido / Surname</label>
                 <at-input v-model="check_in.surname" size="large" placeholder="Thomson"></at-input>
               </div>
-              <div class="col-md-8">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-8 col-lg-8">
                 <label class="black-color">R.U.T / Passport</label>
                 <at-input v-model="check_in.passport" size="large" placeholder="11.111.111-1"></at-input>
               </div>
@@ -68,15 +68,15 @@
             <br />
 
             <div class="row at-row">
-              <div class="col-md-8">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-8 col-lg-8">
                 <label class="black-color">Dirección / Address</label>
                 <at-input v-model="check_in.address" size="large" placeholder="233 S Wacker IL 60606, "></at-input>
               </div>
-              <div class="col-md-8">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-8 col-lg-8">
                 <label class="black-color">Ciudad / City</label>
                 <at-input v-model="check_in.city" size="large" placeholder="Chicago"></at-input>
               </div>
-              <div class="col-md-8">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-8 col-lg-8">
                 <label class="black-color">País / Country</label>
                 <at-input v-model="check_in.country" size="large" placeholder="EEUU"></at-input>
               </div>
@@ -85,15 +85,15 @@
             <br />
 
             <div class="row at-row">
-              <div class="col-md-8">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-8 col-lg-8">
                 <label class="black-color">Nacionalidad / Nationality</label>
                 <at-input v-model="check_in.nationality" size="large" placeholder="EEUU"></at-input>
               </div>
-              <div class="col-md-8">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-8 col-lg-8">
                 <label class="black-color">Correo electrónico / Email</label>
                 <at-input v-model="check_in.email" size="large" placeholder="jhon.thomson@turistrans.cl"></at-input>
               </div>
-              <div class="col-md-8">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-8 col-lg-8">
                 <label class="black-color">Teléfono / Phone</label>
                 <at-input v-model="check_in.phone" size="large" placeholder="+569 6666 66 66"></at-input>
               </div>
@@ -102,15 +102,15 @@
             <br />
 
             <div class="row at-row">
-              <div class="col-md-8">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-8 col-lg-8">
                 <label class="black-color">Fecha In/ Arrival Date</label>
                 <input type="date" class="at-input__original" v-model="check_in.arrival_date" />
               </div>
-              <div class="col-md-8">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-8 col-lg-8">
                 <label class="black-color">Fecha Out/ Departure Date</label>
                 <input type="date" class="at-input__original" v-model="check_in.departure_date" />
               </div>
-              <div class="col-md-8">
+              <div class="col-xs-offset-2 col-xs-20 col-sm-24 col-md-8 col-lg-8">
                 <label class="black-color">Habitación/ Room</label>
                 <at-select v-model="check_in.room" size="large" placeholder="Seleccione / Select">
                   <at-option value="room101">Habitación / Room 101</at-option>
@@ -125,7 +125,7 @@
             <br />
 
             <div class="row at-row">
-              <div class="col-md-offset-16 col-md-8">
+              <div class="col-xs-offset-2 col-xs-20  col-sm-24 col-md-offset-16 col-md-8 col-lg-offset-16 col-lg-8">
                 <at-button class="btn-send-check-in" :disabled="disabledButton" @click="sendCheckIn">Enviar Registro / Send Check - In</at-button>
               </div>
             </div>

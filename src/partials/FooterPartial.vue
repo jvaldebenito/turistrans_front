@@ -2,7 +2,7 @@
   <footer>
     <div class="container">
       <div class="row at-row center">
-        <div class="col-md-24">
+        <div class="col-xs-24 col-sm-24 col-md-24 col-lg-24">
           <hr />
           <h6 class="black-color">TurisTrans</h6>
         </div>
