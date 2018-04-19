@@ -159,6 +159,8 @@ export default {
         arrival_date  : '',
         departure_date: '',
         room          : '',
+        folio         : '564485868665',
+        rate          : '100'
       }
     }
   },
