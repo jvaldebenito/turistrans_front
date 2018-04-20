@@ -44,6 +44,11 @@ export default {
   .at-menu__item a {
     color: #1a031c !important;
   }
+  @media only screen and (min-device-width : 200px) and (max-device-width : 800px){
+    .at-menu__item a {
+      font-size: 12px !important;
+    }
+  }
 </style>
 
 

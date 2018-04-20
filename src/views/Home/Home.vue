@@ -276,5 +276,11 @@ export default {
   .at-notification {
     color: #1a031c !important;
   }
+
+  @media only screen and (min-device-width : 200px) and (max-device-width : 800px){
+    .at-modal {
+      width: 300px !important;
+    }
+  }
 </style>
 
