@@ -180,7 +180,7 @@ export default {
             this.$Notify({
               title: 'Genial!',
               message: 'El registro se realizó con éxito! / The check in it was done successfully',
-              type: 'error'
+              type: 'success'
             })
             this.check_in.name = ''
             this.check_in.surname = ''
