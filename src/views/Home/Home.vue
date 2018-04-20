@@ -182,6 +182,17 @@ export default {
               message: 'El registro se realizó con éxito! / The check in it was done successfully',
               type: 'error'
             })
+            this.check_in.name = ''
+            this.check_in.surname = ''
+            this.check_in.passport = ''
+            this.check_in.address = ''
+            this.check_in.city = ''
+            this.check_in.country = ''
+            this.check_in.nationality = ''
+            this.check_in.email = ''
+            this.check_in.phone = ''
+            this.check_in.arrival_date = ''
+            this.check_in.departure_date = ''
             this.disabledButton = false
           } else {
             this.$Notify({

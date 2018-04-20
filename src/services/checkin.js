@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:3000/'
+const API_URL = 'https://turistrans-api.herokuapp.com/'
 
 let postCheckIn = (check_in) => {
   return axios.post(`${API_URL}/checkins`, {
