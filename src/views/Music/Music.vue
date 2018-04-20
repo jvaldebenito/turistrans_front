@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row at-row center">
           <div class="col-xs-24 col-sm-24 col-md-24 col-lg-24">
-            <h1 class="black-color">Comentarios <b class="orange-color">-</b> Comments</h1>
+            <h1 class="black-color">Música <b class="orange-color">-</b> Music</h1>
           </div>
         </div>
       </div>
@@ -16,7 +16,7 @@
 import DefaultLayout from '@/layouts/DefaultLayout'
 
 export default {
-  name: 'CommentsView',
+  name: 'MusicView',
   components: {
     DefaultLayout,
   }
@@ -34,4 +34,3 @@ export default {
     font-size: 2rem !important;
   }
 </style>
-

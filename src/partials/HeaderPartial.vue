@@ -7,11 +7,34 @@
             <img src="/static/logotipo.png" width="100%"/>
           </router-link>
         </div>
-        <div class="col-xs-24 col-sm-24 col-md-offset-9 col-md-12 col-lg-offset-9 col-lg-12 right-align">
-          <at-menu mode="horizontal" active-name="/">
-            <at-menu-item name="/" to="/"><i class="icon icon-check"></i>Registro / Check-in</at-menu-item>
+        <div class="col-xs-24 col-sm-24 col-md-offset-7 col-md-14 col-lg-offset-9 col-lg-12 right-align">
+          <at-menu mode="horizontal">
+            <at-menu-item name="/check" to="/check"><i class="icon icon-check"></i>Registro / Check-in</at-menu-item>
             <at-menu-item name="/comments" to="/comments"><i class="icon icon-message-square"></i>Comentarios / Comments</at-menu-item>
+            <at-menu-item name="/music" to="/music"><i class="icon icon-music"></i>Música / Music</at-menu-item>
           </at-menu>
+        </div>
+        <div class="row at-row center mobile-menu">
+          <div class="col-xs-6">
+            <router-link to="/">
+              <at-button class="black-color" size="large" icon="icon-home" circle></at-button>
+            </router-link>
+          </div>
+          <div class="col-xs-6">
+            <router-link to="/check">
+              <at-button class="black-color" size="large" icon="icon-check" circle></at-button>
+            </router-link>
+          </div>
+          <div class="col-xs-6">
+            <router-link to="/comments">
+              <at-button class="black-color" size="large" icon="icon-message-square" circle></at-button>
+            </router-link>
+          </div>
+          <div class="col-xs-6">
+            <router-link to="/music">
+              <at-button class="black-color" size="large" icon="icon-music" circle></at-button>
+            </router-link>
+          </div>
         </div>
     </div>
   </div>
@@ -44,9 +67,23 @@ export default {
   .at-menu__item a {
     color: #1a031c !important;
   }
-  @media only screen and (min-device-width : 200px) and (max-device-width : 800px){
-    .at-menu__item a {
-      font-size: 12px !important;
+  .black-color {
+    color: #1a031c !important;
+  }
+  .at-btn--large.at-btn--circle{
+    width: 100px !important;
+    height: 100px !important;
+    border: none !important;
+    background-color: transparent !important;
+  }
+  @media only screen and (min-device-width : 200px) and (max-device-width : 660px) {
+    .at-menu {
+      display: none !important;
+    }
+  }
+  @media only screen and (min-device-width : 660px){ 
+    .mobile-menu {
+      display: none !important;
     }
   }
 </style>
