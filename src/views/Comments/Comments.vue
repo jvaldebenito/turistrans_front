@@ -11,7 +11,7 @@
         <div class="row at-row">
           <div class="col-xs-24 col-sm-24 col-md-offset-4 col-md-16 col-lg-offset-6 col-lg-12">
             <div class="comments-container">
-              <h2 class="black-color center">Comparte tu experiencia en <b class="green-color">TripAdvisor!</b></h2>
+              <h2 class="black-color center">Comparte tu experiencia en <b class="green-color">TripAdvisor!</b> <br />Share your experience on <b class="green-color">TripAdvisor!</b></h2>
               <h3 class="black-color center">Hotel Bidasoa</h3>
               <br />
               <img src="/static/tripadvisor.png" width="100%" />
