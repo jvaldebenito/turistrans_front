@@ -7,6 +7,14 @@
             <h1 class="black-color">Música <b class="orange-color">-</b> Music</h1>
           </div>
         </div>
+        <br />
+        <div class="row at-row">
+          <div class="col-lg-offset-6 col-lg-12">
+            <div class="music-container">
+              <h4 class="black-color">Lorem ipsum dolor sit amet</h4>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </default-layout>
@@ -19,7 +27,7 @@ export default {
   name: 'MusicView',
   components: {
     DefaultLayout,
-  }
+  },
 }
 </script>
 
@@ -32,5 +40,11 @@ export default {
   }
   h1 {
     font-size: 2rem !important;
+  }
+  .music-container {
+    width: 100%;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border: 1px solid #efefef;
   }
 </style>
