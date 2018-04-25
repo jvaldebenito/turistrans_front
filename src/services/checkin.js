@@ -17,6 +17,7 @@ let postCheckIn = (check_in) => {
       "arrival_date"  : check_in.arrival_date,
       "departure_date": check_in.departure_date,
       "room"          : check_in.room,
+      "image"         : check_in.image,
       "folio"         : check_in.folio,
       "rate"          : check_in.rate
     }

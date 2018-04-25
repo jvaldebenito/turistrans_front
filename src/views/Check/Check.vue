@@ -184,7 +184,6 @@ export default {
       this.modalHotelPolicies = false
     },
     sendCheckIn () {
-      console.log(this.check_in.image)
       this.disabledButton = true
       if (this.checkValuesForm()) {
         postCheckIn(this.check_in).then(response => {
