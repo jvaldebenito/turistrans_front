@@ -48,6 +48,16 @@
             </div>
 
             <br />
+
+            <div class="row at-row">
+              <div class="col-xs-24 col-sm-24 col-md-offset-12 col-md-12 col-lg-offset-12 col-lg-12">
+                <div class="file-input-wrapper">
+                  <button class="btn-file-input"><i class="icon icon-camera"></i> Adjuntar documento / Attach document</button>
+                  <input class="right-align inputfile" @change="processFile($event)" type="file" accept="image/*" id="capture" capture="camera" />
+                </div>              
+              </div>
+            </div>
+
             <br />
 
             <div class="row at-row">
@@ -160,6 +170,7 @@ export default {
         arrival_date  : '',
         departure_date: '',
         room          : '',
+        image         : '',
         folio         : '564485868665',
         rate          : '100'
       }
@@ -173,6 +184,7 @@ export default {
       this.modalHotelPolicies = false
     },
     sendCheckIn () {
+      console.log(this.check_in.image)
       this.disabledButton = true
       if (this.checkValuesForm()) {
         postCheckIn(this.check_in).then(response => {
@@ -193,6 +205,7 @@ export default {
             this.check_in.phone = ''
             this.check_in.arrival_date = ''
             this.check_in.departure_date = ''
+            this.check_in.image = ''
             this.disabledButton = false
           } else {
             this.$Notify({
@@ -223,6 +236,9 @@ export default {
       if (this.check_in.name === '' || this.check_in.surname === '' || this.check_in.passport === '' || this.check_in.address === '' || this.check_in.city === '' || this.check_in.country === '' || this.check_in.nationality === '' || this.check_in.email === '' || this.check_in.phone === '' || this.check_in.arrival_date === '' || this.check_in.departure_date === '' || this.check_in.room === '' || this.check_in.folio === '' || this.check_in.rate === '')
         return false
       return true
+    },
+    processFile(event) {
+      this.check_in.image = event.target.files[0]
     } 
   }
 }
@@ -275,6 +291,29 @@ export default {
   }
   .at-notification {
     color: #1a031c !important;
+  }
+  .right-align {
+    float: right !important;
+  }
+  .file-input-wrapper {
+    width: 100% !important;
+    height: 40px !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+  .file-input-wrapper > input[type="file"] {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    opacity: 0 !important;
+  }
+  .file-input-wrapper > .btn-file-input {
+    display: inline-block !important;
+    width: 100% !important;
+    height: 40px !important;
+    cursor: pointer !important;
+    border-radius: 5px !important;
+    border: 1px solid #000 !important;
   }
 
   @media only screen and (min-device-width : 200px) and (max-device-width : 800px){
