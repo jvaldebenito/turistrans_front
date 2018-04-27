@@ -157,6 +157,7 @@ export default {
     return {
       modalHotelPolicies: false,
       disabledButton: false,
+      formData: false,
       check_in: {
         name          : '',
         surname       : '',
@@ -237,7 +238,9 @@ export default {
       return true
     },
     processFile (event) {
-      this.check_in.image = event.target.files
+      this.formData = event.target.files[0]
+      this.check_in.image = new FormData()
+      this.check_in.image.append('image', this.formData, this.formData.name)
     } 
   }
 }
