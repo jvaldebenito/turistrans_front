@@ -158,6 +158,7 @@ export default {
       modalHotelPolicies: false,
       disabledButton: false,
       selectedFile: null,
+      image: null,
       check_in: {
         name          : '',
         surname       : '',
@@ -187,7 +188,7 @@ export default {
     sendCheckIn () {
       this.disabledButton = true
       if (this.checkValuesForm()) {
-        postCheckIn(this.check_in, this.selectedFile).then(response => {
+        postCheckIn(this.check_in, this.image).then(response => {
           if(response.status == 200) {
             this.$Notify({
               title: 'Genial!',
@@ -234,11 +235,13 @@ export default {
     },
     checkValuesForm () {
       if (this.check_in.name === '' || this.check_in.surname === '' || this.check_in.passport === '' || this.check_in.address === '' || this.check_in.city === '' || this.check_in.country === '' || this.check_in.nationality === '' || this.check_in.email === '' || this.check_in.phone === '' || this.check_in.arrival_date === '' || this.check_in.departure_date === '' || this.check_in.room === '' || this.check_in.folio === '' || this.check_in.rate === '')
-        return true
+        return false
       return true
     },
     onFileChanged (event) {
       this.selectedFile = event.target.files[0]
+      this.image = new FormData()
+      this.image.append('image', this.selectedFile, this.selectedFile.name)
     },
   }
 }
