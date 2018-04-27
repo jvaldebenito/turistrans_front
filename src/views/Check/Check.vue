@@ -53,7 +53,7 @@
               <div class="col-xs-24 col-sm-24 col-md-offset-12 col-md-12 col-lg-offset-12 col-lg-12">
                 <div class="file-input-wrapper">
                   <button class="btn-file-input"><i class="icon icon-camera"></i> Adjuntar documento / Attach document</button>
-                  <input class="right-align inputfile" @change="processFile" type="file" accept="image/*" id="capture" capture="camera" />
+                  <input class="right-align inputfile" @change="onFileChange" type="file" accept="image/*" id="capture" capture="camera" />
                 </div>              
               </div>
             </div>
@@ -157,7 +157,7 @@ export default {
     return {
       modalHotelPolicies: false,
       disabledButton: false,
-      formData: false,
+      image: '',
       check_in: {
         name          : '',
         surname       : '',
@@ -187,7 +187,7 @@ export default {
     sendCheckIn () {
       this.disabledButton = true
       if (this.checkValuesForm()) {
-        postCheckIn(this.check_in).then(response => {
+        postCheckIn(this.check_in, this.image).then(response => {
           if(response.status == 200) {
             this.$Notify({
               title: 'Genial!',
@@ -237,11 +237,20 @@ export default {
         return false
       return true
     },
-    processFile (event) {
-      this.formData = event.target.files[0]
-      this.check_in.image = new FormData()
-      this.check_in.image.append('image', this.formData, this.formData.name)
-    } 
+    onFileChange (e) {
+      let files = e.target.files || e.dataTransfer.files
+      if (!files.length)
+        return
+      this.createImage(files[0])
+    },
+    createImage(file) {
+      let reader = new FileReader()
+      let vm = this
+      reader.onload = (e) => {
+        vm.image = e.target.result
+      }
+      reader.readAsDataURL(file)
+    },
   }
 }
 </script>

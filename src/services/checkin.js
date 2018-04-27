@@ -2,8 +2,7 @@ import axios from 'axios'
 
 const API_URL = 'https://turistrans-api.herokuapp.com'
 
-let postCheckIn = (check_in) => {
-  console.log(check_in.image)
+let postCheckIn = (check_in, image) => {
   return axios.post(`${API_URL}/checkins`, {
     "check_in": {
       "name"          : check_in.name,
@@ -18,7 +17,7 @@ let postCheckIn = (check_in) => {
       "arrival_date"  : check_in.arrival_date,
       "departure_date": check_in.departure_date,
       "room"          : check_in.room,
-      "image"         : check_in.image,
+      "image"         : image,
       "folio"         : check_in.folio,
       "rate"          : check_in.rate
     }
