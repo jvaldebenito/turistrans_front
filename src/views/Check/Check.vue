@@ -53,7 +53,7 @@
               <div class="col-xs-24 col-sm-24 col-md-offset-12 col-md-12 col-lg-offset-12 col-lg-12">
                 <div class="file-input-wrapper">
                   <button class="btn-file-input"><i class="icon icon-camera"></i> Adjuntar documento / Attach document</button>
-                  <input :v-model="check_in.image" class="right-align inputfile" @change="processFile" type="file" accept="image/*" id="capture" capture="camera" />
+                  <input class="right-align inputfile" @change="processFile" type="file" accept="image/*" id="capture" capture="camera" />
                 </div>              
               </div>
             </div>
@@ -237,7 +237,7 @@ export default {
       return true
     },
     processFile (event) {
-      this.check_in.image = event.target.files[0]
+      this.check_in.image = event.target.files
     } 
   }
 }
