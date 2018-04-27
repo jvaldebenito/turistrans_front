@@ -53,7 +53,7 @@
               <div class="col-xs-24 col-sm-24 col-md-offset-12 col-md-12 col-lg-offset-12 col-lg-12">
                 <div class="file-input-wrapper">
                   <button class="btn-file-input"><i class="icon icon-camera"></i> Adjuntar documento / Attach document</button>
-                  <input class="right-align inputfile" @change="onFileChange" type="file" accept="image/*" id="capture" capture="camera" />
+                  <input class="right-align inputfile" @change="onFileChanged" type="file" accept="image/*" id="capture" capture="camera" />
                 </div>              
               </div>
             </div>
@@ -157,7 +157,7 @@ export default {
     return {
       modalHotelPolicies: false,
       disabledButton: false,
-      image: '',
+      selectedFile: null,
       check_in: {
         name          : '',
         surname       : '',
@@ -187,7 +187,7 @@ export default {
     sendCheckIn () {
       this.disabledButton = true
       if (this.checkValuesForm()) {
-        postCheckIn(this.check_in, this.image).then(response => {
+        postCheckIn(this.check_in, this.selectedFile).then(response => {
           if(response.status == 200) {
             this.$Notify({
               title: 'Genial!',
@@ -234,22 +234,11 @@ export default {
     },
     checkValuesForm () {
       if (this.check_in.name === '' || this.check_in.surname === '' || this.check_in.passport === '' || this.check_in.address === '' || this.check_in.city === '' || this.check_in.country === '' || this.check_in.nationality === '' || this.check_in.email === '' || this.check_in.phone === '' || this.check_in.arrival_date === '' || this.check_in.departure_date === '' || this.check_in.room === '' || this.check_in.folio === '' || this.check_in.rate === '')
-        return false
+        return true
       return true
     },
-    onFileChange (e) {
-      let files = e.target.files || e.dataTransfer.files
-      if (!files.length)
-        return
-      this.createImage(files[0])
-    },
-    createImage(file) {
-      let reader = new FileReader()
-      let vm = this
-      reader.onload = (e) => {
-        vm.image = e.target.result
-      }
-      reader.readAsDataURL(file)
+    onFileChanged (event) {
+      this.selectedFile = event.target.files[0]
     },
   }
 }
