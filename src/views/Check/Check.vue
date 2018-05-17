@@ -53,7 +53,7 @@
               <div class="col-xs-24 col-sm-24 col-md-offset-12 col-md-12 col-lg-offset-12 col-lg-12">
                 <div class="file-input-wrapper">
                   <button class="btn-file-input"><i class="icon icon-camera"></i> Adjuntar documento / Attach document</button>
-                  <input class="right-align inputfile" @change="onFileChanged" type="file" accept="image/*" id="capture" capture="camera" />
+                  <input class="right-align inputfile" type="file" accept="image/*" id="capture" capture="camera" />
                 </div>              
               </div>
             </div>
@@ -157,8 +157,6 @@ export default {
     return {
       modalHotelPolicies: false,
       disabledButton: false,
-      selectedFile: null,
-      image: null,
       check_in: {
         name          : '',
         surname       : '',
@@ -237,11 +235,6 @@ export default {
       if (this.check_in.name === '' || this.check_in.surname === '' || this.check_in.passport === '' || this.check_in.address === '' || this.check_in.city === '' || this.check_in.country === '' || this.check_in.nationality === '' || this.check_in.email === '' || this.check_in.phone === '' || this.check_in.arrival_date === '' || this.check_in.departure_date === '' || this.check_in.room === '' || this.check_in.folio === '' || this.check_in.rate === '')
         return false
       return true
-    },
-    onFileChanged (event) {
-      this.selectedFile = event.target.files[0]
-      this.image = new FormData()
-      this.image.append('image', this.selectedFile, this.selectedFile.name)
     },
   }
 }
