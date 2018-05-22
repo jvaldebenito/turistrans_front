@@ -150,6 +150,7 @@
 <script>
 import DefaultLayout from '@/layouts/DefaultLayout'
 import { postCheckIn } from '@/services/checkin'
+import firebase from 'firebase'
 
 export default {
   name: 'CheckView',
@@ -188,57 +189,73 @@ export default {
       this.selectFile = event.target.files[0]
     },
     sendCheckIn () {
+      var _this = this
       this.disabledButton = true
       if (this.checkValuesForm()) {
-        const fd = new FormData()
-        fd.append('image', this.selectFile, this.selectFile.name)
-        postCheckIn(this.check_in, fd).then(response => {
-          if(response.status == 200) {
-            this.$Notify({
-              title: 'Genial!',
-              message: 'El registro se realizó con éxito! / The check in it was done successfully',
-              type: 'success'
-            })
-            this.check_in.name = ''
-            this.check_in.surname = ''
-            this.check_in.passport = ''
-            this.check_in.address = ''
-            this.check_in.city = ''
-            this.check_in.country = ''
-            this.check_in.nationality = ''
-            this.check_in.email = ''
-            this.check_in.phone = ''
-            this.check_in.arrival_date = ''
-            this.check_in.departure_date = ''
-            this.check_in.image = ''
-            this.disabledButton = false
-          } else {
-            this.$Notify({
+        const file = this.selectFile
+        const storageRef = firebase.storage().ref(`images/${Date.now() + "-" + file.name}`)
+        const task = storageRef.put(file)
+        let check_in = this.check_in
+        task.on('state_changed', (snapshot, check_in) => {
+        }, (error) => {
+            $Notify({
               title: 'Ups!',
               message: 'Ocurrió un problema, vuelva a internarlo! / There was a problem, reinsert it!',
               type: 'error'
             })
-            this.disabledButton = false
-          }
-        }).catch(err => {
-          this.$Notify({
+            console.error(error.message)
+        }, () => {
+          storageRef.getDownloadURL().then(function(url) {
+            postCheckIn(check_in, url).then((response) => {
+              if(response.status == 200) {
+                _this.$Notify({
+                  title: 'Genial!',
+                  message: 'El registro se realizó con éxito! / The check in it was done successfully',
+                  type: 'success'
+                })
+                _this.check_in.name = ''
+                _this.check_in.surname = ''
+                _this.check_in.passport = ''
+                _this.check_in.address = ''
+                _this.check_in.city = ''
+                _this.check_in.country = ''
+                _this.check_in.nationality = ''
+                _this.check_in.email = ''
+                _this.check_in.phone = ''
+                _this.check_in.arrival_date = ''
+                _this.check_in.departure_date = ''
+                _this.check_in.image = ''
+                _this.selectFile = null
+                _this.disabledButton = false
+              } else {
+                  _this.$Notify({
+                    title: 'Ups!',
+                    message: 'Ocurrió un problema, vuelva a internarlo! / There was a problem, reinsert it!',
+                    type: 'error'
+                  })
+                  _this.disabledButton = false
+              }
+            }).catch(err => {
+                _this.$Notify({
+                  title: 'Ups!',
+                  message: 'Ocurrió un problema, vuelva a internarlo! / There was a problem, reinsert it!',
+                  type: 'error'
+                })
+                _this.disabledButton = false
+            })
+          })
+        })
+      } else {
+          _this.$Notify({
             title: 'Ups!',
             message: 'Ocurrió un problema, vuelva a internarlo! / There was a problem, reinsert it!',
             type: 'error'
           })
-          this.disabledButton = false
-        })
-      } else {
-        this.$Notify({
-          title: 'Ups!',
-          message: 'Debe completar todos los campos! / You must complete all the fields!',
-          type: 'warning'
-        })
-        this.disabledButton = false
+          _this.disabledButton = false
       }
     },
     checkValuesForm () {
-      if (this.check_in.name === '' || this.check_in.surname === '' || this.check_in.passport === '' || this.check_in.address === '' || this.check_in.city === '' || this.check_in.country === '' || this.check_in.nationality === '' || this.check_in.email === '' || this.check_in.phone === '' || this.check_in.arrival_date === '' || this.check_in.departure_date === '' || this.check_in.room === '' || this.check_in.folio === '' || this.check_in.rate === '')
+      if (this.check_in.name === '' || this.check_in.surname === '' || this.check_in.passport === '' || this.check_in.address === '' || this.check_in.city === '' || this.check_in.country === '' || this.check_in.nationality === '' || this.check_in.email === '' || this.check_in.phone === '' || this.check_in.arrival_date === '' || this.check_in.departure_date === '' || this.check_in.room === '' || this.check_in.folio === '' || this.check_in.rate === '' || this.selectFile === null)
         return false
       return true
     }
